@@ -9,10 +9,12 @@ add_executable(
     common/TestInterval.cpp
     common/TestLimitedValue.cpp
     game/TestUnitState.cpp
+    game/TestAttribute.cpp
 )
 
 target_link_libraries(
     run-tests
     world
+    logger
     gtest_main
     )

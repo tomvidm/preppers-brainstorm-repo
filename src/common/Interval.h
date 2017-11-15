@@ -19,10 +19,24 @@ namespace common {
 
         T getLowerBound() const;
         T getUpperBound() const;
+        void setLowerBound(const T& lowerBound);
+        void setUpperBound(const T& upperBound);
     private:
         T lowerBound_;
         T upperBound_;
     };
+
+    template <typename T>
+    void Interval<T>::setLowerBound(const T& lowerBound)
+    {
+        lowerBound_ = lowerBound;
+    }
+
+    template <typename T>
+    void Interval<T>::setUpperBound(const T& upperBound)
+    {
+        upperBound_ = upperBound;
+    }
 
     template <typename T>
     Interval<T>::Interval(const T& lowerBound, const T& upperBound)

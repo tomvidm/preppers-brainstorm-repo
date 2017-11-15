@@ -29,6 +29,9 @@ namespace common {
         T getMax() const;
         T getValue() const;
 
+        void setMin(const T& lowerBound);
+        void setMax(const T& upperBound);
+
         bool isMin() const;
 
         void imitateUnsigned();
@@ -50,12 +53,25 @@ namespace common {
         bool operator == (const LimitedValue<T>& val) const;
 
         void operator = (const T& val);
+        LimitedValue<T>& operator = (const LimitedValue<T>& limval);
     private:
         T value_;
         Interval<T> bounds_;
 
         void applyLimits();
     };
+
+    template <typename T>
+    void LimitedValue<T>::setMin(const T& lowerBound) 
+    {
+        bounds_.setLowerBound(lowerBound);
+    }
+
+    template <typename T>
+    void LimitedValue<T>::setMax(const T& upperBound) 
+    {
+        bounds_.setUpperBound(upperBound);
+    }
 
     template <typename T>
     LimitedValue<T>::LimitedValue()
@@ -184,6 +200,14 @@ namespace common {
     {
         value_ = val;
         applyLimits();
+    }
+
+    template <typename T>
+    LimitedValue<T>& LimitedValue<T>::operator = (const LimitedValue<T>& limval)
+    {
+        value_ = limval.getValue();
+        bounds_ = limval.getInterval();
+        return *this;
     }
 
     template <typename T>

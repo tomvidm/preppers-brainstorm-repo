@@ -11,11 +11,13 @@ namespace game {
     class UnitState
     {
     public:
-        void setAttribute(const AttributeType& attribute, const float& val);
-        float getAttribute(const AttributeType& attribute) const;
-        float getAttributeMax(const AttributeType& attribute) const;
+        UnitState();
+        void setAttribute(const AttributeType& attribute, const LimitedFloat& limval);
+        LimitedFloat getAttribute(const AttributeType& attribute) const;
+        LimitedFloat& getAttribute(const AttributeType& attribute);
+        float getAttributeValue(const AttributeType& attribute) const;
     private:
-        LimitedFloat attributes[static_cast<uint>(AttributeType::NUM_ATTRIBUTES)];
+        LimitedFloat unitAttributes[static_cast<uint>(AttributeType::NUM_ATTRIBUTES)];
     };
 }
 

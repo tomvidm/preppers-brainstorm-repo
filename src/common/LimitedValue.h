@@ -11,6 +11,7 @@ namespace common {
     {
     public:
         LimitedValue();
+        LimitedValue(const T& val);
         LimitedValue(const T& initialValue, const T& lowerBound, const T& upperBound);
         LimitedValue(const LimitedValue<T>& other);
         ~LimitedValue();
@@ -21,7 +22,11 @@ namespace common {
 
         bool isMin() const;
 
+        void imitateUnsigned();
+
         Interval<T> getInterval() const;
+        void setInterval(const Interval<T>& interval);
+        void setInterval(const T& lowerBound, const T& upperBound);
 
         void operator += (const T& val);
         void operator -= (const T& val);
@@ -52,6 +57,14 @@ namespace common {
     }
 
     template <typename T>
+    LimitedValue<T>::LimitedValue(const T& val)
+    : bounds_(Interval<T>(std::numeric_limits<T>::min(), 
+                          std::numeric_limits<T>::max())), value_(val)
+    {
+        ;
+    }
+
+    template <typename T>
     LimitedValue<T>::LimitedValue(const T& initialValue, const T& lowerBound, const T& upperBound)
     : bounds_(Interval<T>(lowerBound, upperBound)), value_(initialValue)
     {
@@ -69,6 +82,24 @@ namespace common {
     LimitedValue<T>::~LimitedValue()
     {
         ;
+    }
+
+    template <typename T>
+    Interval<T> LimitedValue<T>::getInterval() const
+    {
+        return bounds_;
+    }
+
+    template <typename T>
+    void LimitedValue<T>::setInterval(const T& lowerBound, const T& upperBound)
+    {
+        setInterval(Interval<T>(lowerBound, upperBound));
+    }
+
+    template <typename T>
+    void LimitedValue<T>::setInterval(const Interval<T>& interval)
+    {
+        bounds_ = interval;
     }
 
     template <typename T>
@@ -165,9 +196,15 @@ namespace common {
     }
 
     template <typename T>
-    T LimitedValue<T>::isMin() const
+    bool LimitedValue<T>::isMin() const
     {
         return value_ == getMin();
+    }
+
+    template <typename T>
+    void LimitedValue<T>::imitateUnsigned()
+    {
+        setInterval(T(static_cast<T>(0)), std::numeric_limits<T>::max());
     }
 
     template <typename T>

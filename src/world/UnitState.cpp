@@ -1,18 +1,29 @@
 #include "UnitState.h"
 
 namespace game {
-    void UnitState::setAttribute(const AttributeType& attribute, const float& val)
+    UnitState::UnitState()
     {
-        attributes[static_cast<uint>(attribute)] = val;
+        getAttribute(AttributeType::SoftAttack).imitateUnsigned();
+        getAttribute(AttributeType::SoftDefense).imitateUnsigned();
     }
 
-    float UnitState::getAttribute(const AttributeType& attribute) const
+    void UnitState::setAttribute(const AttributeType& attribute, const LimitedFloat& limval)
     {
-        return attributes[static_cast<uint>(attribute)].getValue();
+        unitAttributes[static_cast<uint>(attribute)] = limval;
     }
 
-    float UnitState::getAttributeMax(const AttributeType& attribute) const
+    LimitedFloat UnitState::getAttribute(const AttributeType& attribute) const
     {
-        return attributes[static_cast<uint>(attribute)].getMax();
+        return unitAttributes[static_cast<uint>(attribute)];
+    }
+
+    LimitedFloat& UnitState::getAttribute(const AttributeType& attribute)
+    {
+        return unitAttributes[static_cast<uint>(attribute)];
+    }
+
+    float UnitState::getAttributeValue(const AttributeType& attribute) const
+    {
+        return unitAttributes[static_cast<uint>(attribute)].getValue();
     }
 }

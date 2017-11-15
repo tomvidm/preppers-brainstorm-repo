@@ -8,6 +8,7 @@ add_executable(
     trivialTest.cpp
     common/TestInterval.cpp
     common/TestLimitedValue.cpp
+    game/TestUnitState.cpp
 )
 
 target_link_libraries(

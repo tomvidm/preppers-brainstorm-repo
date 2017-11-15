@@ -1,6 +1,11 @@
 #ifndef INTERVAL_H
 #define INTERVAL_H
 
+/*
+    Interval is a class that represents a numeric interval
+    and makes it simple to check if a value is between two values.
+*/
+
 namespace common {
     template <typename T>
     class Interval 

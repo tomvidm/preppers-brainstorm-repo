@@ -10,6 +10,20 @@
 #include "ValueField.h"
 #include "DebugLine.h"
 
+/*
+    Forget about std::cout!
+    Meet the logger, which lets you hide std::cout behind an interface that
+    also lets you say "log("some message", LogLevel::LOG_DEBUG)" and control whether
+    or not it is shown depending on the log level.
+
+    This class is a singleton and should always be accessed through the static
+    method getInstancePtr().
+
+    common::Logger* logger = common::Logger::getInstancePtr();
+    logger->log("Snoop Doggo");
+    logger->log({common::ValueField(2), common::ValueField(" bad 4 skool")});
+*/
+
 namespace common {
 
     class Logger

@@ -5,6 +5,8 @@ namespace game {
     {
         getAttribute(AttributeType::SoftAttack).imitateUnsigned();
         getAttribute(AttributeType::SoftDefense).imitateUnsigned();
+        getAttribute(AttributeType::HardAttack).imitateUnsigned();
+        getAttribute(AttributeType::HardDefense).imitateUnsigned();
     }
 
     void UnitState::setAttribute(const AttributeType& attribute, const LimitedFloat& limval)

@@ -5,6 +5,15 @@
 
 #include "common/Interval.h"
 
+/*
+    LimitedValue is a class that represents some value that has to
+    be between two values. It uses the Interval class and a value for this.
+    As an example, it can be used to easily represent variables such as hitpoints
+    and so on. It is overloaded to most resemble a normal numeric variable,
+    but will automatically keep the value at the bounadries if the value overflows
+    or underflows.
+*/
+
 namespace common {
     template <typename T>
     class LimitedValue

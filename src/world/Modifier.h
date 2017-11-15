@@ -5,6 +5,16 @@
 
 #include "Attributes.h"
 
+/*
+    Instead of polluting UnitState class with if-checks and
+    such when adding +25% to organization or whatever, this class
+    makes it easy to just pass a value and return the modified value,
+    depending on what it should do.
+
+    in object oriented programming, if it can be made an object, MAKE IT AN OBJECT.
+    Everything becomes easier to maintain.
+*/
+
 namespace game {    
     typedef unsigned int uint;
 

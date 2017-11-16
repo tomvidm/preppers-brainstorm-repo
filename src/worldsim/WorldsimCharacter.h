@@ -18,6 +18,7 @@ namespace game {
         NUM_ATTRIBUTES
     };
 
+        void addAttributeModifier(const Attributes& attrType, const AttributeModifier<float>& mod);
         void setAttribute(const Attributes& attrType, const Attribute<float>& attr);
         float getAttribute(const Attributes& attrType) const;
     private:

@@ -14,15 +14,23 @@ namespace game {
 
     TEST_F(TestAttribute, Attribute)
     {
-        EXPECT_EQ(attribute.getBaseValue(), attribute.getValue()); // 1.f == 1.f
-        attribute.addModifier(flatMod);                            // 1.f + 0.5f == 1.5f
+        // Without modification, base value and modified values are equal
+        EXPECT_EQ(attribute.getBaseValue(), attribute.getValue());
+        attribute.addModifier(flatMod); 
+        // 1.f + 0.5f == 1.5f
         EXPECT_EQ(attribute.getValue(), 1.5f);                     
-        attribute.addModifier(multMod);                            // (1.f + 0.5f) * 1.5f == 2.25f
+        attribute.addModifier(multMod);                           
+        // (1.f + 0.5f) * 1.5f == 2.25f
         EXPECT_EQ(attribute.getValue(), 2.25f);                    
-        attribute.setBaseValue(0.f);                               // (0.f + 0.5f) * 1.5f == 0.75f
+        attribute.setBaseValue(0.f);   
+        // (0.f + 0.5f) * 1.5f == 0.75f                           
         EXPECT_EQ(attribute.getValue(), 0.75f);                     
-        attribute.addModifier(flatMod);                            // 1.f * 1.5f == 1.5f;
+        attribute.addModifier(flatMod);
+        // (0.f + 0.5f + 0.5f) * 1.5f == 1.5f
         EXPECT_EQ(attribute.getValue(), 1.5f);
+        // If successful, flat and multiplicative modifiers
+        // are correctly sorted so that flat modifiers are
+        // applied before multiplicative ones.
     }
 
     TEST_F(TestAttribute, AttributeContainer)

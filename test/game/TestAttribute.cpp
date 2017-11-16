@@ -31,6 +31,11 @@ namespace game {
         // If successful, flat and multiplicative modifiers
         // are correctly sorted so that flat modifiers are
         // applied before multiplicative ones.
+
+        // Default turn lifetime of attribute modifiers are 1 turn.
+        // Calling onTurn makes the modifiers die.
+        attribute.onTurn();
+        EXPECT_EQ(attribute.getValue(), 0.f);
     }
 
     TEST_F(TestAttribute, AttributeContainer)
@@ -41,5 +46,8 @@ namespace game {
         AttributeModifier<float> mod = AttributeModifier<float>(0.75f, ModifierOperation::Flat);
         ustate.getAttribute(AttributeType::SoftAttack).addModifier(mod);
         EXPECT_EQ(ustate.getAttributeValue(AttributeType::SoftAttack), 1.f);
+        // Test modifier lifetime.
+        ustate.onTurn();
+        EXPECT_EQ(ustate.getAttributeValue(AttributeType::SoftAttack), 0.5f);
     }
 }

@@ -6,6 +6,7 @@ set(SOURCES
     Card.cpp
     WorldsimCharacter.cpp
     WorldsimParty.cpp
+    Description.cpp
 )
 
 add_library(

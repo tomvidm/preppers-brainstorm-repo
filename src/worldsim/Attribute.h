@@ -3,6 +3,8 @@
 
 #include <algorithm>
 
+#include "common/Logger.h"
+
 #include "common/LimitedValue.h"
 #include "worldsim/AttributeModifier.h"
 
@@ -22,6 +24,7 @@ namespace game {
         void addModifier(const AttributeModifier<T>& mod);
 
         void setBaseValue(const T& val);
+        void onTurn();
     private:
         void update();
         
@@ -90,6 +93,17 @@ namespace game {
     void Attribute<T>::setBaseValue(const T& val)
     {
         baseAttributeValue = val;
+        update();
+    }
+
+    template <typename T>
+    void Attribute<T>::onTurn()
+    {
+        common::Logger::getInstancePtr()->log("calling Attribute::onTurn()\n");
+        for (auto& m : modifiers)
+        {
+            m.onTurn();
+        }
         update();
     }
 

@@ -3,6 +3,8 @@
 
 #include <vector>
 
+#include "common/Logger.h"
+
 #include "Attribute.h"
 
 namespace game {
@@ -32,6 +34,7 @@ namespace game {
         void setAttributeBaseValue(const E& attrType, const float& val);
         Attribute<float>& getAttribute(const E& attrType);
         float getAttributeValue(const E& attrType) const;
+        void onTurn();
     private:
         Attribute<float> attributes[static_cast<uint>(E::NUM_ATTRIBUTES)];
     };
@@ -70,6 +73,16 @@ namespace game {
     float AttributeContainer<E>::getAttributeValue(const E& attrType) const
     {
         return attributes[static_cast<uint>(attrType)].getValue();
+    }
+
+    template <typename E>
+    void AttributeContainer<E>::onTurn()
+    {
+        common::Logger::getInstancePtr()->log("calling AttributeContainer::onTurn()\n");
+        for (auto& a : attributes)
+        {
+            a.onTurn();
+        }
     }
 }
 

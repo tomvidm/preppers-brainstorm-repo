@@ -26,8 +26,8 @@ namespace game {
 
         void addAttributeModifier(const Attributes& attrType, const AttributeModifier<float>& mod);
         void addAttributeModifierToCharacter(std::string name, const Attributes& attrType, const AttributeModifier<float>& mod);
-        void addCharacter(const WorldsimCharacter& character);
         float getAttributeValue(const Attributes& attrType) const;
+        void addCharacter(const WorldsimCharacter& character);
 
         WorldsimCharacter& getCharacter(std::string name);
     private:

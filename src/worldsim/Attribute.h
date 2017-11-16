@@ -7,20 +7,6 @@
 #include "worldsim/AttributeModifier.h"
 
 namespace game {
-    enum AttributeType
-    {
-        // Basic attributes
-        SoftAttack,
-        SoftDefense,
-        HardAttack,
-        HardDefense,
-        Organization,
-        Morale,
-        Dicipline,
-        Entrenchment,
-        NUM_ATTRIBUTES
-    };
-
     template <typename T>
     class Attribute
     {

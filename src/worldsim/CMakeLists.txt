@@ -4,7 +4,6 @@ include_directories(
 
 set(SOURCES
     Card.cpp
-    UnitState.cpp
 )
 
 add_library(

@@ -6,13 +6,13 @@ namespace game {
         ;
     }
 
-    TEST_F(TestAttribute, AttributeModifierWorks)
+    TEST_F(TestAttribute, AttributeModifier)
     {
         EXPECT_EQ(flatMod.modify(1.5f), 2.f);
         EXPECT_EQ(multMod.modify(1.5f), 2.25f);
     }
 
-    TEST_F(TestAttribute, AttributeWorks)
+    TEST_F(TestAttribute, Attribute)
     {
         EXPECT_EQ(attribute.getBaseValue(), attribute.getValue()); // 1.f == 1.f
         attribute.addModifier(flatMod);                            // 1.f + 0.5f == 1.5f
@@ -23,5 +23,15 @@ namespace game {
         EXPECT_EQ(attribute.getValue(), 0.75f);                     
         attribute.addModifier(flatMod);                            // 1.f * 1.5f == 1.5f;
         EXPECT_EQ(attribute.getValue(), 1.5f);
+    }
+
+    TEST_F(TestAttribute, AttributeContainer)
+    {
+        Attribute<float> attr = Attribute<float>(0.5f, 1.f);
+        ustate.setAttribute(AttributeType::SoftAttack, attr);
+        EXPECT_EQ(ustate.getAttributeValue(AttributeType::SoftAttack), 0.5f);
+        AttributeModifier<float> mod = AttributeModifier<float>(0.75f, ModifierOperation::Flat);
+        ustate.getAttribute(AttributeType::SoftAttack).addModifier(mod);
+        EXPECT_EQ(ustate.getAttributeValue(AttributeType::SoftAttack), 1.f);
     }
 }

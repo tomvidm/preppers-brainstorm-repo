@@ -8,7 +8,6 @@ add_executable(
     trivialTest.cpp
     common/TestInterval.cpp
     common/TestLimitedValue.cpp
-    game/TestUnitState.cpp
     game/TestAttribute.cpp
 )
 

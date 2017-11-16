@@ -5,6 +5,7 @@ include_directories(
 set(SOURCES
     Card.cpp
     WorldsimCharacter.cpp
+    WorldsimParty.cpp
 )
 
 add_library(

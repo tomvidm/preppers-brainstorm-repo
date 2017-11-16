@@ -29,6 +29,7 @@ namespace game {
         
         void addAttributeModifier(const E& attrType, const AttributeModifier<float>& mod);
         void setAttribute(const E& attrType, const Attribute<float>& attr);
+        void setAttributeBaseValue(const E& attrType, const float& val);
         Attribute<float>& getAttribute(const E& attrType);
         float getAttributeValue(const E& attrType) const;
     private:
@@ -51,6 +52,12 @@ namespace game {
     void AttributeContainer<E>::setAttribute(const E& attrType, const Attribute<float>& attr)
     {
         attributes[static_cast<uint>(attrType)] = attr;
+    }
+
+    template <typename E>
+    void AttributeContainer<E>::setAttributeBaseValue(const E& attrType, const float& val)
+    {
+        attributes[static_cast<uint>(attrType)].setBaseValue(val);
     }
 
     template <typename E>

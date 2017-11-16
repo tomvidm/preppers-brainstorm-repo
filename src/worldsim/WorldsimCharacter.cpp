@@ -1,6 +1,12 @@
 #include "WorldsimCharacter.h"
 
 namespace game {
+    WorldsimCharacter::WorldsimCharacter(std::string name)
+    : name_(name)
+    {
+        ;
+    }
+
     void WorldsimCharacter::addAttributeModifier(const Attributes& attrType, const AttributeModifier<float>& mod)
     {
         attributes.addAttributeModifier(attrType, mod);

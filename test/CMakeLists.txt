@@ -10,6 +10,7 @@ add_executable(
     common/TestLimitedValue.cpp
     game/TestAttribute.cpp
     game/TestWorldsimCharacter.cpp
+    game/TestWorldsimParty.cpp
 )
 
 target_link_libraries(

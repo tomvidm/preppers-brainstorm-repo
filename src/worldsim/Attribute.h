@@ -135,10 +135,16 @@ namespace game {
     template <typename T>
     void Attribute<T>::cleanup()
     {
-        for (auto m : modifiers)
+        // Should probably find a better way to remove elements.
+        std::vector<AttributeModifier<T>> leftoverModifiers;
+        for (auto& m : modifiers)
         {
-            std::remove_if(modifiers.begin(), modifiers.end(), isActive<T>);
+            if (m.isActive())
+            {
+                leftoverModifiers.push_back(m);
+            }
         }
+        modifiers = leftoverModifiers;
     }
 }
 

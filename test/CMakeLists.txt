@@ -9,6 +9,7 @@ add_executable(
     common/TestInterval.cpp
     common/TestLimitedValue.cpp
     game/TestAttribute.cpp
+    game/TestWorldsimCharacter.cpp
 )
 
 target_link_libraries(

@@ -1,5 +1,5 @@
 add_subdirectory(common)
-add_subdirectory(world)
+add_subdirectory(worldsim)
 
 include_directories(
     ${PROJECT_SOURCE_DIR}/src/
@@ -13,5 +13,5 @@ add_executable(
 target_link_libraries(
     run
     logger
-    world
+    worldsim
     )

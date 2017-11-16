@@ -3,8 +3,8 @@
 
 #include "gtest/gtest.h"
 
-#include "world/AttributeModifier.h"
-#include "world/Attribute.h"
+#include "worldsim/AttributeModifier.h"
+#include "worldsim/Attribute.h"
 
 namespace game {
     class TestAttribute : public testing::Test 

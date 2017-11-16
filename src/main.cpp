@@ -1,7 +1,7 @@
 
 #include "common/Logger.h"
-#include "world/UnitState.h"
-#include "world/AttributeModifier.h"
+#include "worldsim/UnitState.h"
+#include "worldsim/AttributeModifier.h"
 
 int main()
 {

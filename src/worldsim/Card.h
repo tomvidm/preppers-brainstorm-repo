@@ -4,18 +4,6 @@
 #include <string>
 
 namespace game {
-    enum Attribute {
-        SoftAttack,
-        SoftDefense,
-        HardAttack,
-        HardDefense,
-        Organization,
-        Dicipline,
-        Morale,
-        Entrenchment,
-        NUM_ATTRIBUTES
-    };
-
     class Card
     {
     public:

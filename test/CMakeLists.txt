@@ -14,7 +14,7 @@ add_executable(
 
 target_link_libraries(
     run-tests
-    world
+    worldsim
     logger
     gtest_main
     )

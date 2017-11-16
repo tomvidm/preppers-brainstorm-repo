@@ -1,8 +1,10 @@
 #ifndef ATTRIBUTE_H
 #define ATTRIBUTE_H
 
+#include <algorithm>
+
 #include "common/LimitedValue.h"
-#include "world/AttributeModifier.h"
+#include "worldsim/AttributeModifier.h"
 
 namespace game {
     enum AttributeType
@@ -40,8 +42,7 @@ namespace game {
         common::LimitedValue<T> baseAttributeValue;
         common::LimitedValue<T> modifiedAttributeValue;
 
-        std::vector<AttributeModifier<T>> flatModifiers;
-        std::vector<AttributeModifier<T>> multiplicativeModifiers;
+        std::vector<AttributeModifier<T>> modifiers;
     };
 
     template <typename T>
@@ -95,18 +96,7 @@ namespace game {
     template <typename T>
     void Attribute<T>::addModifier(const AttributeModifier<T>& mod)
     {
-        switch (mod.getModifierOperation())
-        {
-            case ModifierOperation::Flat:
-                flatModifiers.push_back(mod);
-                break;
-            case ModifierOperation::Multiplicative:
-                multiplicativeModifiers.push_back(mod);
-                break;
-            default:
-                break;
-        }
-
+        modifiers.push_back(mod);
         update();
     }
 
@@ -122,14 +112,12 @@ namespace game {
     {
         modifiedAttributeValue = baseAttributeValue;
 
-        for (auto m : flatModifiers)
-        {
-            modifiedAttributeValue += m.getFactor();
-        }
+        // Make sure flat modifiers are applied before multiplicative.
+        std::sort(modifiers.begin(), modifiers.end());  
 
-        for (auto m : multiplicativeModifiers)
+        for (auto m : modifiers)
         {
-            modifiedAttributeValue *= m.getFactor();
+            m.modify(modifiedAttributeValue);
         }
     }
 }

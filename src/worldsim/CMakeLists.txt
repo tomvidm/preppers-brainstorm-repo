@@ -8,6 +8,11 @@ set(SOURCES
 )
 
 add_library(
-    world
+    worldsim
     ${SOURCES}
+    )
+
+target_link_libraries(
+    worldsim
+    logger
     )

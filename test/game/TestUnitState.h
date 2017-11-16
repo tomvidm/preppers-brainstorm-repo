@@ -3,8 +3,8 @@
 
 #include "gtest/gtest.h"
 
-#include "world/Attribute.h"
-#include "world/UnitState.h"
+#include "worldsim/Attribute.h"
+#include "worldsim/UnitState.h"
 
 namespace game {
     class TestUnitState : public testing::Test 

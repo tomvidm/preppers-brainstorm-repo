@@ -1,11 +1,8 @@
-#ifndef ATTRIBUTES_H
-#define ATTRIBUTES_H
-
-// Unit attributes are defined here.
+#ifndef ATTRIBUTE_H
+#define ATTRIBUTE_H
 
 #include "common/LimitedValue.h"
 #include "world/AttributeModifier.h"
-#include <iostream>
 
 namespace game {
     enum AttributeType
@@ -35,6 +32,8 @@ namespace game {
         T getValue() const;
 
         void addModifier(const AttributeModifier<T>& mod);
+
+        void setBaseValue(const T& val);
     private:
         void update();
         
@@ -108,6 +107,13 @@ namespace game {
                 break;
         }
 
+        update();
+    }
+
+    template <typename T>
+    void Attribute<T>::setBaseValue(const T& val)
+    {
+        baseAttributeValue = val;
         update();
     }
 

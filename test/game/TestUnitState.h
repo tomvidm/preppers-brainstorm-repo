@@ -3,6 +3,7 @@
 
 #include "gtest/gtest.h"
 
+#include "world/Attribute.h"
 #include "world/UnitState.h"
 
 namespace game {

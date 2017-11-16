@@ -243,16 +243,13 @@ namespace common {
     template <typename T>
     void LimitedValue<T>::applyLimits()
     {
-        if (!bounds_.contains(value_))
+        if (value_ >= bounds_.getUpperBound())
         {
-            if (value_ > bounds_.getUpperBound())
-            {
-                value_ = bounds_.getUpperBound();
-            }
-            else
-            {
-                value_ = bounds_.getLowerBound();
-            }
+            value_ = bounds_.getUpperBound();
+        }
+        else if (value_ <= bounds_.getLowerBound())
+        {
+            value_ = bounds_.getLowerBound();
         }
     }
 

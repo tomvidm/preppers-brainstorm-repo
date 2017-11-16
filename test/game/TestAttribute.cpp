@@ -19,5 +19,7 @@ namespace game {
         EXPECT_EQ(attribute.getValue(), 1.5f);
         attribute.addModifier(multMod);
         EXPECT_EQ(attribute.getValue(), 2.25f);
+        attribute.setBaseValue(0.f);
+        EXPECT_EQ(attribute.getValue(), 0.75f);
     }
 }

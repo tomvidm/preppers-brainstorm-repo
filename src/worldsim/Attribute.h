@@ -2,6 +2,8 @@
 #define ATTRIBUTE_H
 
 #include <algorithm>
+#include <stack>
+#include <iostream>
 
 #include "common/Logger.h"
 
@@ -22,11 +24,13 @@ namespace game {
         T getValue() const;
 
         void addModifier(const AttributeModifier<T>& mod);
+        unsigned int getNumModifiers() const;
 
         void setBaseValue(const T& val);
         void onTurn();
     private:
         void update();
+        void cleanup();
         
         common::LimitedValue<T> baseAttributeValue;
         common::LimitedValue<T> modifiedAttributeValue;
@@ -97,6 +101,12 @@ namespace game {
     }
 
     template <typename T>
+    unsigned int Attribute<T>::getNumModifiers() const
+    {
+        return modifiers.size();
+    }
+
+    template <typename T>
     void Attribute<T>::onTurn()
     {
         common::Logger::getInstancePtr()->log("calling Attribute::onTurn()\n");
@@ -104,6 +114,7 @@ namespace game {
         {
             m.onTurn();
         }
+        cleanup();
         update();
     }
 
@@ -118,6 +129,15 @@ namespace game {
         for (auto m : modifiers)
         {
             m.modify(modifiedAttributeValue);
+        }
+    }
+
+    template <typename T>
+    void Attribute<T>::cleanup()
+    {
+        for (auto m : modifiers)
+        {
+            std::remove_if(modifiers.begin(), modifiers.end(), isActive<T>);
         }
     }
 }

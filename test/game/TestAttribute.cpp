@@ -32,10 +32,13 @@ namespace game {
         // are correctly sorted so that flat modifiers are
         // applied before multiplicative ones.
 
+        EXPECT_EQ(attribute.getNumModifiers(), 3);
+
         // Default turn lifetime of attribute modifiers are 1 turn.
         // Calling onTurn makes the modifiers die.
         attribute.onTurn();
         EXPECT_EQ(attribute.getValue(), 0.f);
+        EXPECT_EQ(attribute.getNumModifiers(), 0);
     }
 
     TEST_F(TestAttribute, AttributeContainer)

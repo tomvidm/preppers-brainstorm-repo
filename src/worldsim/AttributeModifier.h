@@ -33,6 +33,12 @@ namespace game {
         bool isActive_ = true;
     };
 
+    template <typename T>
+    bool isActive(const AttributeModifier<T>& mod)
+    {
+        return mod.isActive();
+    }
+
     template <typename T>       
     AttributeModifier<T>::AttributeModifier(const T& factor, const ModifierOperation& modifierOperation)
     : modifierOperation_(modifierOperation), factor_(factor)
@@ -93,7 +99,7 @@ namespace game {
     template <typename T>
     void AttributeModifier<T>::onTurn()
     {
-        common::Logger::getInstancePtr()->log("calling AttributeModifier::onTurn()\n");
+        common::Logger::getInstancePtr()->log("AttributeModifier::onTurn()\n");
         if (lifetimeTurns_ == 0)
         {
             isActive_ = false;

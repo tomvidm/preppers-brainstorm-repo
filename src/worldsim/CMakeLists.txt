@@ -3,10 +3,10 @@ include_directories(
     )
 
 set(SOURCES
-    Card.cpp
     WorldsimCharacter.cpp
     WorldsimParty.cpp
     Description.cpp
+    DamageDescriptor.cpp
 )
 
 add_library(

@@ -8,10 +8,7 @@
 
 namespace game {
 
-    class WorldsimParty
-    {
-    public:
-        enum Attributes {
+    enum Attributes {
         // Basic attributes
         SoftAttack,
         SoftDefense,
@@ -24,6 +21,9 @@ namespace game {
         NUM_ATTRIBUTES
         };
 
+    class WorldsimParty
+    {
+    public:
         void addAttributeModifier(const Attributes& attrType, const AttributeModifier<float>& mod);
         void addAttributeModifierToCharacter(std::string name, const Attributes& attrType, const AttributeModifier<float>& mod);
         float getAttributeValue(const Attributes& attrType) const;

@@ -12,25 +12,25 @@ namespace game {
     {
         AttributeModifier<float> mod = AttributeModifier<float>(2.f, ModifierOperation::Multiplicative);
 
-        EXPECT_EQ(wp.getAttributeValue(WorldsimParty::Attributes::SoftAttack), 0.f);
-        EXPECT_EQ(wp.getAttributeValue(WorldsimParty::Attributes::HardAttack), 0.f);
+        EXPECT_EQ(wp.getAttributeValue(Attributes::SoftAttack), 0.f);
+        EXPECT_EQ(wp.getAttributeValue(Attributes::HardAttack), 0.f);
 
         wp.addCharacter(wc1);
-        EXPECT_EQ(wp.getAttributeValue(WorldsimParty::Attributes::SoftAttack), 1.f);
+        EXPECT_EQ(wp.getAttributeValue(Attributes::SoftAttack), 1.f);
 
         wp.addCharacter(wc2);
-        EXPECT_EQ(wp.getAttributeValue(WorldsimParty::Attributes::SoftAttack), 6.f);
+        EXPECT_EQ(wp.getAttributeValue(Attributes::SoftAttack), 6.f);
 
         wp.addCharacter(wc3);
-        EXPECT_EQ(wp.getAttributeValue(WorldsimParty::Attributes::HardAttack), 10.f);
-        EXPECT_EQ(wp.getAttributeValue(WorldsimParty::Attributes::SoftAttack), 6.f);
+        EXPECT_EQ(wp.getAttributeValue(Attributes::HardAttack), 10.f);
+        EXPECT_EQ(wp.getAttributeValue(Attributes::SoftAttack), 6.f);
 
-        wp.addAttributeModifierToCharacter("char1", WorldsimParty::Attributes::SoftAttack, mod);
+        wp.addAttributeModifierToCharacter("char1", Attributes::SoftAttack, mod);
 
-        EXPECT_EQ(wp.getAttributeValue(WorldsimParty::Attributes::SoftAttack), 7.f);
+        EXPECT_EQ(wp.getAttributeValue(Attributes::SoftAttack), 7.f);
 
-        wp.addAttributeModifier(WorldsimParty::Attributes::SoftAttack, mod);
+        wp.addAttributeModifier(Attributes::SoftAttack, mod);
 
-        EXPECT_EQ(wp.getAttributeValue(WorldsimParty::Attributes::SoftAttack), 14.f);
+        EXPECT_EQ(wp.getAttributeValue(Attributes::SoftAttack), 14.f);
     }
 }

@@ -7,6 +7,7 @@ set(SOURCES
     WorldsimParty.cpp
     Description.cpp
     DamageDescriptor.cpp
+    Damageable.cpp
 )
 
 add_library(

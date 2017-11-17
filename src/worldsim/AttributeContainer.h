@@ -78,7 +78,6 @@ namespace game {
     template <typename E>
     void AttributeContainer<E>::onTurn()
     {
-        common::Logger::getInstancePtr()->log("calling AttributeContainer::onTurn()\n");
         for (auto& a : attributes)
         {
             a.onTurn();

@@ -26,11 +26,14 @@ namespace game {
         bool operator < (const AttributeModifier& other) const;
         void onTurn();
         bool isActive() const;
+        inline bool isIncreasingPerTurn() const { return perTurn_; }
     private:
+        void stackSelf();
         ModifierOperation modifierOperation_;
         T factor_;
-        unsigned int lifetimeTurns_ = 1;
+        int lifetimeTurns_ = 1;
         bool isActive_ = true;
+        bool perTurn_ = false;
     };
 
     template <typename T>
@@ -43,7 +46,7 @@ namespace game {
     AttributeModifier<T>::AttributeModifier(const T& factor, const ModifierOperation& modifierOperation)
     : modifierOperation_(modifierOperation), factor_(factor)
     {
-        common::Logger::getInstancePtr()->log("AttributeModifier constructed\n");
+        ;
     }
 
     template <typename T>
@@ -99,8 +102,14 @@ namespace game {
     template <typename T>
     void AttributeModifier<T>::onTurn()
     {
-        common::Logger::getInstancePtr()->log("AttributeModifier::onTurn()\n");
-        if (lifetimeTurns_ == 0)
+        if (lifetimeTurns_ == -1)
+        {
+            if (isIncreasingPerTurn())
+            {
+                stackSelf();
+            }
+        }
+        else if (lifetimeTurns_ == 0)
         {
             isActive_ = false;
         }
@@ -112,6 +121,22 @@ namespace game {
         else
         {
             lifetimeTurns_ -= 1;
+        }
+    }
+
+    template <typename T>
+    void AttributeModifier<T>::stackSelf()
+    {
+        switch (modifierOperation_)
+        {
+            case ModifierOperation::Flat:
+                factor_ += factor_;
+                break;
+            case ModifierOperation::Multiplicative:
+                factor_ *= factor_;
+                break;
+            default:
+                return;
         }
     }
 

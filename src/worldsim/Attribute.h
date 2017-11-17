@@ -26,6 +26,9 @@ namespace game {
         void addModifier(const AttributeModifier<T>& mod);
         unsigned int getNumModifiers() const;
 
+        void operator += (const T& val);
+        void operator -= (const T& val);
+
         void setBaseValue(const T& val);
         void onTurn();
     private:
@@ -101,6 +104,20 @@ namespace game {
     }
 
     template <typename T>
+    void Attribute<T>::operator += (const T& val)
+    {
+        baseAttributeValue += val;
+        update();
+    }
+
+    template <typename T>
+    void Attribute<T>::operator -= (const T& val)
+    {
+        baseAttributeValue -= val;
+        update();
+    }
+
+    template <typename T>
     unsigned int Attribute<T>::getNumModifiers() const
     {
         return modifiers.size();
@@ -109,7 +126,6 @@ namespace game {
     template <typename T>
     void Attribute<T>::onTurn()
     {
-        common::Logger::getInstancePtr()->log("calling Attribute::onTurn()\n");
         for (auto& m : modifiers)
         {
             m.onTurn();

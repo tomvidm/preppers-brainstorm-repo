@@ -4,24 +4,29 @@
 #include <vector>
 
 #include "worldsim/BodyPart.h"
+#include "common/DiscreteDistribution.h"
 
 namespace game {
+
+    enum Part {
+        Head,
+        Torso,
+        LeftHand, RightHand,
+        LeftArm, RightArm,
+        LeftLeg, RightLeg,
+        NUM_BODY_PARTS
+    };
+
     class Body
     {
     public:
-        enum Part {
-            Head,
-            Torso,
-            LeftHand, Right Hand,
-            LeftArm, RightArm,
-            LeftLeg, RightLeg,
-            NUM_BODY_PARTS
-        };
+        Body();
+        Part receiveDamage(const DamageDescriptor& dmg, const Part& targettedPart = Part::NUM_BODY_PARTS);
 
     private:
-        BodyPart bodyParts[Part::NUM_BODY_PARTS];
-        int sizeFactors[Part::NUM_BODY_PARTS] = { 2, 5, 1, 1, 2, 2, 3, 3 };
-    }
+        std::vector<BodyPart> bodyParts;
+        std::vector<int> sizeFactors;
+    };
 }
 
 #endif

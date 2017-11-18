@@ -9,6 +9,11 @@ namespace common {
         ;
     }
 
+    DiscreteDistribution::DiscreteDistribution(const std::vector<int>& weights)
+    {
+        setWeights(weights);
+    }
+
     int DiscreteDistribution::rand() const 
     {
         return pdf_(gen);

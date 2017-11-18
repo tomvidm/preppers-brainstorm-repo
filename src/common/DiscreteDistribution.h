@@ -11,6 +11,7 @@ namespace common {
     {
     public:
         DiscreteDistribution();
+        DiscreteDistribution(const std::vector<int>& weights);
         int rand() const;
         int rand(const std::vector<int>& weights) const;
         std::vector<int> getWeights() const;

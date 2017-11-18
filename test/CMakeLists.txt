@@ -13,6 +13,7 @@ add_executable(
     game/TestWorldsimCharacter.cpp
     game/TestWorldsimParty.cpp
     game/TestDamageable.cpp
+    game/TestBody.cpp
 )
 
 target_link_libraries(

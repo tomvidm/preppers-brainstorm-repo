@@ -2,16 +2,6 @@
 #define ATTRIBUTES_H
 
 namespace game {
-    enum BodyPart
-    {
-        Torso,
-        Head,
-        LeftHand, RightHand,
-        LeftArm, RightArm,
-        LeftLeg, RightLeg,
-        NUM_BODY_PARTS
-    };
-
     enum BodyFunction
     {
         Sight,

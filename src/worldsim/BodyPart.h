@@ -8,10 +8,10 @@ namespace game {
     {
     public:
         virtual void applyDamage(const DamageDescriptor& damage);
-        inline void setSizeFactor(const int& size) { sizeFactor_ = size;Damageable }
+        inline void setSizeFactor(const int& size) { sizeFactor_ = size; }
     protected:
         int sizeFactor_;
-    }
+    };
 }
 
 #endif

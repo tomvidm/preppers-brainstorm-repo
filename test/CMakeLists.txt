@@ -8,9 +8,11 @@ add_executable(
     trivialTest.cpp
     common/TestInterval.cpp
     common/TestLimitedValue.cpp
+    common/TestDiscreteDistribution.cpp
     game/TestAttribute.cpp
     game/TestWorldsimCharacter.cpp
     game/TestWorldsimParty.cpp
+    game/TestDamageable.cpp
 )
 
 target_link_libraries(

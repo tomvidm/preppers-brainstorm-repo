@@ -8,7 +8,7 @@ TEST(TestDamageable, RemoveHealth)
     using namespace game;
     Damageable target;
     DamageDescriptor dmg(DamageType::Ballistic, 0.2f);
-    EXPECT_EQ(target.getHealth(), 1.f);
+    EXPECT_EQ(target.getHealth().getValue(), 1.f);
     target.applyDamage(dmg);
-    EXPECT_EQ(target.getHealth(), 0.8f);
+    EXPECT_EQ(target.getHealth().getValue(), 0.8f);
 }

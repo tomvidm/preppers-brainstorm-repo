@@ -15,6 +15,7 @@ namespace common {
         int rand() const;
         int rand(const std::vector<int>& weights) const;
         std::vector<int> getWeights() const;
+        std::vector<double> getProbabilities() const;
         void setWeights(const std::vector<int>& weights);
     private:
         static unsigned seed;

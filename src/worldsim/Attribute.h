@@ -22,16 +22,18 @@ namespace game {
         T getBaseValue() const;
         T getBaseMaxValue() const;
         T getValue() const;
+        T getMaxValue() const;
 
         void addModifier(const AttributeModifier<T>& mod);
         unsigned int getNumModifiers() const;
 
         void operator += (const T& val);
         void operator -= (const T& val);
+        void operator = (const Attribute<T>& attr);
 
         void setBaseValue(const T& val);
         void onTurn();
-    private:
+    protected:
         void update();
         void cleanup();
         
@@ -90,6 +92,12 @@ namespace game {
     }
 
     template <typename T>
+    T Attribute<T>::getMaxValue() const
+    {
+        return modifiedAttributeValue.getMax();
+    }
+
+    template <typename T>
     void Attribute<T>::addModifier(const AttributeModifier<T>& mod)
     {
         modifiers.push_back(mod);
@@ -114,6 +122,14 @@ namespace game {
     void Attribute<T>::operator -= (const T& val)
     {
         baseAttributeValue -= val;
+        update();
+    }
+
+    template <typename T>
+    void Attribute<T>::operator = (const Attribute<T>& attr)
+    {
+        baseAttributeValue = attr.baseAttributeValue;
+        modifiedAttributeValue = attr.modifiedAttributeValue;
         update();
     }
 

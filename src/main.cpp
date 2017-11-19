@@ -2,24 +2,27 @@
 #include <chrono>
 #include <random>
 #include "common/Logger.h"
-#include "common/DiscreteDistribution.h"
+#include "worldsim/Body.h"
+#include "worldsim/DamageDescriptor.h"
 
 int main()
 {
     common::Logger* logger = common::Logger::getInstancePtr();
     logger->log("Running...\n", common::LogLevel::LOG_DEBUG);
-    common::DiscreteDistribution pdf;
-    std::vector<int> w = { 5, 4, 3, 2, 1};
-    pdf.setWeights(w);
-    int hist[5] = {0};
-    for (int i = 0; i < 20000; i++)
+
+    game::Body body;
+    game::DamageDescriptor dmg(game::DamageType::Ballistic, 0.2f);
+    
+    for (int i = 0; i < 5; i++)
     {
-        hist[pdf.rand()]++;
+        game::Part hit = body.receiveDamage(dmg, game::Part::Head);
+        std::cout << body.getBodyPart(hit).getName() << " was hit!" << std::endl;
     }
-    std::cout << hist[0] << std::endl;
-    std::cout << hist[1] << std::endl;
-    std::cout << hist[2] << std::endl;
-    std::cout << hist[3] << std::endl;
-    std::cout << hist[4] << std::endl;
+
+    body.assessHealth();
+    std::cout << "===================" << std::endl;
+    body.assessHitChances();
+    std::cout << "===================" << std::endl;
+    body.assessHitChances(game::Part::Head);
     return 0;
 }

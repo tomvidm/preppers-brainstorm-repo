@@ -35,4 +35,10 @@ namespace common {
     {
         return weights_;
     }
+
+    std::vector<double> DiscreteDistribution::getProbabilities() const
+    {
+        std::vector<double> prob = pdf_.probabilities();
+        return prob;
+    }
 }

@@ -14,7 +14,7 @@ namespace game {
     {
     public:
         Damageable();
-        float getHealth() const;
+        inline Attribute<float> getHealth() const { return health; }
         virtual void applyDamage(const DamageDescriptor& damage);
     protected:
         Attribute<float> health;

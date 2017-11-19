@@ -22,7 +22,9 @@ namespace game {
     public:
         Body();
         Part receiveDamage(const DamageDescriptor& dmg, const Part& targettedPart = Part::NUM_BODY_PARTS);
-
+        void assessHealth() const;
+        void assessHitChances(const Part& aimedPart = Part::NUM_BODY_PARTS) const;
+        inline BodyPart getBodyPart(const Part& part) const { return bodyParts[static_cast<int>(part)]; }
     private:
         std::vector<BodyPart> bodyParts;
         std::vector<int> sizeFactors;

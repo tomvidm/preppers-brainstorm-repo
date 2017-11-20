@@ -9,7 +9,8 @@ add_executable(
     common/TestInterval.cpp
     common/TestLimitedValue.cpp
     common/TestDiscreteDistribution.cpp
-    game/TestAttribute.cpp
+    common/TestAttribute.cpp
+    common/TestAttribute2.cpp
     game/TestWorldsimCharacter.cpp
     game/TestWorldsimParty.cpp
     game/TestDamageable.cpp

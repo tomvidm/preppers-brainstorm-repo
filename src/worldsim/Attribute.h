@@ -10,6 +10,10 @@
 #include "common/LimitedValue.h"
 #include "worldsim/AttributeModifier.h"
 
+/*
+    DEPRECATED SOON
+*/
+
 namespace game {
     template <typename T>
     class Attribute

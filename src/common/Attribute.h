@@ -11,6 +11,7 @@ namespace common {
     template <typename T>
     class Attribute {
     public:
+        Attribute();
         Attribute(const T& maxVal);
 
         inline T getBaseMaxValue() const { return baseMaxValue_; }
@@ -38,6 +39,10 @@ namespace common {
 
         std::vector<AttributeModifier<T>> mods_;
     };
+
+    template <typename T>
+    Attribute<T>::Attribute()
+    : maxValue_(1.f), value_(1.f), baseMaxValue_(1.f) { update(); }
 
     template <typename T>
     Attribute<T>::Attribute(const T& maxVal)
@@ -68,8 +73,10 @@ namespace common {
     Attribute<T> Attribute<T>::operator = (const Attribute<T>& other)
     {
         value_ = other.getValue();
+        baseMaxValue_ = other.getBaseMaxValue();
         mods_ = other.getModifiers();
         update();
+        return *this;
     }
 
     template <typename T>

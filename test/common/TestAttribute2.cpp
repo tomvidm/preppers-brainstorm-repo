@@ -1,7 +1,6 @@
 #include "gtest/gtest.h"
 
-#include "common/AttributeModifier.h"
-#include "common/Attribute.h"
+#include "common/AttributeIncludes.h"
 
 namespace common {
 
@@ -45,5 +44,20 @@ namespace common {
         Attribute<float> attr2 = attr;
 
         EXPECT_EQ(attr.getValue(), attr2.getValue());
+    }
+
+    TEST(TestAttribute2, AttributeContainersWorks)
+    {
+        enum TestAttributes {
+            Attr1,
+            Attr2,
+            Attr3,
+            NUM_ATTRIBUTES
+        };
+
+        AttributeArray<float, TestAttributes> attrVec;
+        attrVec.setAttribute(TestAttributes::Attr1, Attribute<float>(10.f));
+
+        EXPECT_EQ(attrVec.getAttribute(TestAttributes::Attr1).getMaxValue(), 10.f);
     }
 }

@@ -6,6 +6,10 @@
 #include "common/LimitedValue.h"
 #include "worldsim/Description.h"
 
+/*
+    DEPRECATED SOON
+*/
+
 namespace game {
     enum ModifierOperation {
         Flat = 0,

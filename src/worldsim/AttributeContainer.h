@@ -7,6 +7,10 @@
 
 #include "Attribute.h"
 
+/*
+    DEPRECATED SOON
+*/
+
 namespace game {
     typedef unsigned int uint;
 

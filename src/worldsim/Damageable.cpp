@@ -1,7 +1,7 @@
 #include "worldsim/Damageable.h"
 namespace game {
     Damageable::Damageable()
-    : health(Attribute<float>(1.f, 1.f))
+    : health(common::Attribute<float>(1.f))
     {
         ;
     }

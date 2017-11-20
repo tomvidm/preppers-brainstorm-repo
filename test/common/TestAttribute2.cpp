@@ -60,4 +60,12 @@ namespace common {
 
         EXPECT_EQ(attrVec.getAttribute(TestAttributes::Attr1).getMaxValue(), 10.f);
     }
+
+    TEST(TestAttribute2, AttributeMapWorks)
+    {
+        AttributeMap<float> attrMap;
+        attrMap.set("attr1", Attribute<float>(10.f));
+        Attribute<float> attr = attrMap.get("attr1");
+        //EXPECT_EQ(attrMap.getAttribute("attr1").getMaxValue(), 10.f);
+    }
 }

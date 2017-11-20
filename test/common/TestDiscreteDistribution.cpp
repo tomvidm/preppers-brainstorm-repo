@@ -33,9 +33,11 @@ TEST(TestDiscreteDistribution, WorkisAsIntended)
     EXPECT_TRUE(hist1[0] > hist1[1]);
     EXPECT_TRUE(hist1[1] > hist1[2]);
     EXPECT_TRUE(hist1[2] > hist1[3]);
+
     EXPECT_TRUE(hist2[0] < hist2[1]);
     EXPECT_TRUE(hist2[1] < hist2[2]);
     EXPECT_TRUE(hist2[2] < hist2[3]);
+    
     EXPECT_TRUE(hist3[0] > hist3[1]);
     EXPECT_TRUE(hist3[1] > hist3[2]);
     EXPECT_TRUE(hist3[2] > hist3[3]);

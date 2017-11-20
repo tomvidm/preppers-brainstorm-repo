@@ -5,7 +5,6 @@ include_directories(
 
 add_executable(
     run-tests
-    trivialTest.cpp
     common/TestInterval.cpp
     common/TestLimitedValue.cpp
     common/TestDiscreteDistribution.cpp

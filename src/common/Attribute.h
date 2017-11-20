@@ -28,6 +28,7 @@ namespace common {
         Attribute<T> operator = (const Attribute<T>& other);
         bool operator == (const Attribute<T>& other) const;
         bool operator == (const T& other) const;
+        void onTurn();
 
     private:
         void update();
@@ -160,6 +161,23 @@ namespace common {
             default:
                 break;
         }
+    }
+
+    void Attribute<T>::onTurn()
+    {
+        std::vector<AttributeModifier<T>> temp;
+
+        for (auto& m : mods_)
+        {
+            m.onTurn();
+
+            if (m.getDuration() != 0)
+            {
+                temp.push_back(m);
+            }            
+        }
+
+        mods_ = temp;
     }
 }
 

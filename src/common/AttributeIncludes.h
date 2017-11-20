@@ -2,7 +2,8 @@
 #define ATTRIBUTEINCLUDES_H
 
 #include "common/Attribute.h"
-#include "common/AttributeContainer.h"
+#include "common/AttributeVector.h"
+#include "common/AttributeMap.h"
 #include "common/AttributeModifier.h"
 
 namespace common {

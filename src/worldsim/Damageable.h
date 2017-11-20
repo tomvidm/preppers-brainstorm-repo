@@ -1,7 +1,7 @@
 #ifndef DAMAGEABLE_H
 #define DAMAGEABLE_H
 
-#include "worldsim/Attribute.h"
+#include "common/AttributeIncludes.h"
 #include "worldsim/DamageDescriptor.h"
 
 /*
@@ -14,10 +14,10 @@ namespace game {
     {
     public:
         Damageable();
-        inline Attribute<float> getHealth() const { return health; }
+        inline common::Attribute<float> getHealth() const { return health; }
         virtual void applyDamage(const DamageDescriptor& damage);
     protected:
-        Attribute<float> health;
+        common::Attribute<float> health;
     };
 }
 

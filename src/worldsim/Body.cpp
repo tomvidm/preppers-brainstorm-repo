@@ -67,7 +67,7 @@ namespace game {
     {
         for (auto& bp : bodyParts)
         {
-            Attribute<float> health = bp.getHealth();
+            common::Attribute<float> health = bp.getHealth();
             std::cout << std::setw(10) << bp.getName() << "  " << health.getValue() << "/" << health.getMaxValue() << std::endl;
         }
     }

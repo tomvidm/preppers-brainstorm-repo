@@ -5,6 +5,7 @@ include_directories(
 set(SOURCES
     WorldsimCharacter.cpp
     WorldsimParty.cpp
+    Actor.cpp
     Body.cpp
     BodyPart.cpp
     Description.cpp

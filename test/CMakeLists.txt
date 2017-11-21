@@ -10,6 +10,8 @@ add_executable(
     common/TestDiscreteDistribution.cpp
     common/TestAttribute.cpp
     common/TestAttribute2.cpp
+    common/TestObjectPool.cpp
+    game/TestActor.cpp
     game/TestWorldsimCharacter.cpp
     game/TestWorldsimParty.cpp
     game/TestDamageable.cpp

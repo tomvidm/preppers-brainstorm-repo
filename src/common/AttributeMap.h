@@ -12,20 +12,27 @@ namespace common {
     class AttributeMap : public Map<Attribute<T>>
     {
     public:
-        T getValue() const;
-        T getMax() const;
+        T getValue(const std::string& id) const;
+        T getMax(const std::string& id) const;
+        Attribute<T> getAttribute(const std::string& id);
     };
 
     template <typename T>
-    T AttributeMap<T>::getValue() const
+    T AttributeMap<T>::getValue(const std::string& id) const
     {
         return get(id).getValue();
     }
 
     template <typename T>
-    T AttributeMap<T>::getMax() const
+    T AttributeMap<T>::getMax(const std::string& id) const
     {
         return get(id).getMaxValue();
+    }
+
+    template <typename T>
+    Attribute<T> AttributeMap<T>::getAttribute(const std::string& id)
+    {
+        return get(id);
     }
 }
 

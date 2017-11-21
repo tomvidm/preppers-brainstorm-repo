@@ -163,6 +163,7 @@ namespace common {
         }
     }
 
+    template <typename T>
     void Attribute<T>::onTurn()
     {
         std::vector<AttributeModifier<T>> temp;

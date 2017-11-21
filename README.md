@@ -1,7 +1,7 @@
-# preppers-worldsim
+## introduction 
 A framework for simulating high level actions and events happening in the hypothetical game Preppers
 
-# How to build
+## How to build
 1. cd into folder in git bash
 2. mkdir externals
 3. cd into externals

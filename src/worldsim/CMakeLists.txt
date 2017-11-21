@@ -11,6 +11,8 @@ set(SOURCES
     Description.cpp
     DamageDescriptor.cpp
     Damageable.cpp
+    Person.cpp
+    Trait.cpp
 )
 
 add_library(

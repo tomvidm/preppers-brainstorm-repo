@@ -72,6 +72,12 @@ names = {
                 "Veronika",
                 "Aase"
             }
+        },
+
+        last_names = {
+            "Hansen",
+            "Olsen",
+            "Sjoflot"
         }
     },
 
@@ -105,7 +111,8 @@ names = {
                 "Ivan",
                 "Taras",
                 "Tymofey", 
-                "Fyodr"
+                "Fyodr",
+                "Leonid"
             },
 
             female = {
@@ -146,10 +153,26 @@ names = {
             "Tymoshenko",
             "Kondratenko",
             "Komchatnykh",
-            "Levitskikh"
+            "Levitskikh",
+            "Aliyev",
+            "Belyakov",
+            "Bogdanov",
+            "Gavrilov",
+            "Gorbachev",
+            "Yeltsin",
+            "Yezhov",
+            "Zharkov",
+            "Ivchenko",
+            "Klimov",
+            "Lebedev",
+            "Leonidov",
+            "Mirov",
+            "Morozov"
         }
     }
 }
+
+math.randomseed(os.time())
 
 function getRandomFirstName (langGroup, gender)
     fnames = names[langGroup].first_names[gender]

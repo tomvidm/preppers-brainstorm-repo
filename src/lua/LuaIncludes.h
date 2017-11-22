@@ -8,6 +8,6 @@ extern "C"
     #include "lauxlib.h"
 }
 
-#include "selene.h"
+#include "../../include/selene.h"
 
 #endif

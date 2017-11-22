@@ -1,7 +1,3 @@
-add_subdirectory(common)
-add_subdirectory(worldsim)
-add_subdirectory(engine)
-
 include_directories(
     ${PROJECT_SOURCE_DIR}/src/
     ${PROJECT_SOURCE_DIR}/include/
@@ -9,21 +5,22 @@ include_directories(
     ${SFML_INCLUDE_DIR}
     )
 
-add_executable(
-    run
-    main.cpp
+set(SOURCES
+    Window.cpp
+    )
+
+add_library(
+    engine
+    Window.cpp
     )
 
 target_compile_definitions(
-    run PUBLIC
+    engine PUBLIC
     -std=c++11
     -Wall
 )
 
 target_link_libraries(
-    run
     engine
-    logger
-    worldsim
     ${COMMON_LIBRARIES}
     )

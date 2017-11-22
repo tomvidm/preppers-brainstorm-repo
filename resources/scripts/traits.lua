@@ -1,116 +1,133 @@
+-- This lua file defines a lua table containing a list of traits
+-- and function simplifying getting information about these
+-- from C++
+
 traits = {
-    "antiintellectual" = {
-        title = "Anti-intellectual",
-        description = "Smart people just rubs this person the wrong way.",
+    {
+        id = "antiintellectual", title = "Anti-Intellectual", 
+        description = "Really dislikes know-it-alls.",
         opinion_of_trait = {
-            'antiintellectual' = 10,
-            'intellectual' = -20,
+            { "intellectual", -10 }
         }
     },
 
-    "snob" = {
-        title = "Snob",
+    {
+        id = "snob", title = "Snob", 
         description = "This person is an annoying snob.",
         opinion_of_trait = {
-            "ambitious" = -20,
-            "curious" = -10,
-            "amateur_artist" = -10,
-            "dense" = -10,
-            "pedantic" = 10,
-            "perfectionist" = 10
+            { "intellectual", -10 }
         }
     },
 
-    "cheerful" = {
-        title = "Cheerful",
+    {
+        id = "cheerful", title = "Cheerful", 
         description = "This person is cheerful and smiles too much.",
         opinion_of_trait = {
-            "pessimist" = -10,
-            "misanthrope" = -10,
-            "optimist" = 10
+            { "intellectual", -10 }
         }
     },
 
-    "misanthrope" = {
-        title = "Misanthrope",
-        description = "This person wears all black and likes horror movies. Also prefers solitude.",
+    {
+        id = "pedantic", title = "Pedantic", 
+        description = "Believes academic rigour must apply to even the most mundane things.",
         opinion_of_trait = {
-            "cheerful" = -20,
-            "introvert" = 5
+            { "intellectual", -10 }
         }
     },
 
-    "temperate" = {
-        title = "Temperate",
+    {
+        id = "gluttonous", title = "Gluttonous", 
+        description = "Unhealthy appetite!",
+        opinion_of_trait = {
+            { "intellectual", -10 }
+        }
+    },
+
+    {
+        id = "hypochondriac", title = "Hypochondriac", 
+        description = "'It's not diarrhea! It's AIDS!'",
+        opinion_of_trait = {
+            { "intellectual", -10 }
+        }
+    },
+
+    {
+        id = "temperate", title = "Temperate", 
         description = "This person will not eat all the food supplies.",
         opinion_of_trait = {
-            "gluttonous" = -10
+            { "intellectual", -10 }
         }
     },
 
-    "introvert" = {
-        title = "Introvert",
-        description = "This person read books between classes.",
-        opinion_of_trait = {
-            "extrovert" = -5,
-            "cheerful" = -5
-        }
-    },
-
-    "extrovert" = {
-        title = "Introvert",
-        description = "This person just cant shut the fuck up.",
-        opinion_of_trait = {
-            "introvert" = -5,
-            "misanthrope" = -5,
-            "snob" = -5
-        }
-    },
-
-    "paranoid" = {
-        title = "Paranoid",
-        description = "Time to get the *name of medicine*!",
-        opinion_of_trait = {
-            "introvert" = -10,
-            "misanthrope" = -10
-        }
-    },
-
-    "hypochondriac" = {
-        title = "Hypochondriac",
-        description = "'It's not diarrhea! It's AIDS!'"
-    },
-
-    "daredevil" = {
-        title = "Daredevil",
-        description = "The middle ground between brave and dumb as fuck."
-    },
-
-    "hippie" = {
-        title = "Hippie",
+    {
+        id = "hippie", title = "Hippie", 
         description = "Too young to remember Woodstock, but still can't stop talking about it.",
         opinion_of_trait = {
-            "intellectual" = -5,
+            { "intellectual", -10 }
         }
     },
 
-    "intellectual" = {
-        title = "Intellectual",
-        description = "This person is interested in everything except you.",
+    {
+        id = "introvert", title = "Introvert", 
+        description = "Too young to remember Woodstock, but still can't stop talking about it.",
         opinion_of_trait = {
-            "antiintellectual" = -15,
-            "dense" = -5
+            { "intellectual", -10 }
         }
     },
 
-    "slow" = {
-        title = "Slow",
-        description = "This person will nod in agreement, but it ends there.",
+    {
+        id = "extrovert", title = "Introvert", 
+        description = "Too young to remember Woodstock, but still can't stop talking about it.",
+        opinion_of_trait = {
+            { "intellectual", -10 }
+        }
     },
 
-    "clown" = {
-        title = "Clown",
-        description = "This person makes jokes. Too many jokes. Ha ha ha!!!"
+    {
+        id = "jovial", title = "Jovial", 
+        description = "This person is very jovial.",
+        opinion_of_trait = {
+            { "intellectual", -10 }
+        }
     },
 
+    {
+        id = "irritable", title = "Irritable", 
+        description = "This person is irritable and tense.",
+        opinion_of_trait = {
+            { "intellectual", -10 }
+        }
+    },
+
+    {
+        id = "bright", title = "Bright", 
+        description = "While not a genius, this person learns quickly.",
+        opinion_of_trait = {
+            { "intellectual", -10 }
+        }
+    },
 }
+
+function getNumTraits ()
+    return #traits
+end
+
+function getTraitTitle (index)
+    return traits[index].title
+end
+
+function getTraitDescription (index)
+    return traits[index].description
+end
+
+function getNumTraitOpinions (index)
+    return #traits[index].opinion_of_trait
+end
+
+function getTraitOpinion (index, opinion)
+    return traits[index].opinion_of_trait[opinion][1]
+end
+
+function getTraitOpinionModifier (index, opinion)
+    return traits[index].opinion_of_trait[opinion][2]
+end

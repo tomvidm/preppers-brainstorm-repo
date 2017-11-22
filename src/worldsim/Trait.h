@@ -15,6 +15,7 @@ namespace game {
         inline String& getName() { return name; }
         inline String getName() const { return name; }
         inline String getDescription() const { return description; }
+        inline void setDescription(const String& desc) { description = desc; }
 
         bool hasOpinionOf(String id) const;
         float getOpinionModifierFor(String id) const;

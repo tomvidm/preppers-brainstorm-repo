@@ -26,6 +26,8 @@ namespace game {
 
         float getOpinionOf(const Person& other) const;
         void addTrait(const Trait& trait);
+
+        void printTrait() const;
     private:
         Name name_;
 

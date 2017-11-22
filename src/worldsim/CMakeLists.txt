@@ -14,6 +14,7 @@ set(SOURCES
     Damageable.cpp
     Person.cpp
     Trait.cpp
+    TraitAtlas.cpp
 )
 
 add_library(

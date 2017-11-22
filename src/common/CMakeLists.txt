@@ -1,3 +1,7 @@
+include_directories(
+    ${LUA_INCLUDE_DIR}
+    )
+
 set(SOURCES
     DebugLine.cpp
     Logger.cpp

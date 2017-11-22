@@ -1,5 +1,6 @@
 include_directories(
     ${PROJECT_SOURCE_DIR}/src/
+    ${LUA_INCLUDE_DIR}
     )
 
 set(SOURCES

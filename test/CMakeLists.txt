@@ -1,6 +1,8 @@
 include_directories(
     ${PROJECT_SOURCE_DIR}/src/
-    ${gtest_SOURCE_DIR}/include
+    ${PROJECT_SOURCE_DIR}/include/
+    ${gtest_SOURCE_DIR}/include/
+    ${LUA_INCLUDE_DIR}
 )
 
 add_executable(
@@ -24,4 +26,5 @@ target_link_libraries(
     worldsim
     logger
     gtest_main
+    ${COMMON_LIBRARIES}
     )

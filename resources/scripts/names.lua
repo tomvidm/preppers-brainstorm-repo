@@ -1,65 +1,4 @@
 names = {
-    arabic = {
-        first_names = {
-            male = {
-                "Muammar",
-                "Mohammad",
-                "Saddam",
-                "Bashir"
-            },
-
-            female = {
-                "Manar",
-                "Abir",
-                "Alya",
-                "Shabnam"
-            }
-        },
-
-        last_names = {
-            "Al-Assad",
-            "Hussein",
-            "Al-Anwar",
-            "Al-Something",
-            "Muahmmad"
-        }
-    },
-
-    english = {
-        first_names = {
-            male = {
-                "Arthur",
-                "Bruce",
-                "Charles",
-                "David",
-                "Edgar",
-                "Frank",
-                "Greg",
-                "Hugh",
-                "Irwin",
-                "James",
-                "Matthew",
-                "Neil",
-                "Patrick"
-            },
-
-            female = {
-                "Alice",
-                "Anne"
-            }
-
-        last_names = {
-            "Baker",
-            "Smith",
-            "Bush",
-            "Clinton",
-            "Kerrington",
-            "Potter",
-            "Lagerfeld",
-            "Nguyen"
-        }
-    },
-
     scandinavian = {
         first_names = {
             male = {
@@ -134,35 +73,6 @@ names = {
                 "Aase"
             }
         }
-    }
-
-    -- Polish, Czech, Slovenian etc
-    west_slavic = {
-        first_names = {
-            male = {
-                "Amadeusz",
-                "Arkadiusz",
-                "Boleslaw",
-                "Cezary",
-                "Cyprian",
-                "Mateusz",
-                "Michal",
-                "Karol",
-                "Piotr",
-                "Szymon"
-            },
-
-            female = {
-                "Beata",
-                "Malgorzata",
-                "Marta"
-            }
-        },
-
-        last_names = {
-            "Blysz",
-            "Kryze"
-        }
     },
 
     east_slavic = {
@@ -194,7 +104,7 @@ names = {
                 "Vladimir",
                 "Ivan",
                 "Taras",
-                "Tymofey",
+                "Tymofey", 
                 "Fyodr"
             },
 
@@ -240,3 +150,16 @@ names = {
         }
     }
 }
+
+function getRandomFirstName (langGroup, gender)
+    fnames = names[langGroup].first_names[gender]
+    return fnames[math.random(#fnames)]
+end
+
+function getRandomLastName (langGroup)
+    lnames = names[langGroup].last_names
+    return lnames[math.random(#lnames)]
+end
+
+-- print(getRandomFirstName("east_slavic", "male"))
+-- print(getRandomLastName("east_slavic"))

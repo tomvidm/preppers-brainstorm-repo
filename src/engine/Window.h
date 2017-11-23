@@ -4,6 +4,10 @@
 #include "SFML/Graphics.hpp"
 
 #include "common/Logger.h"
+#include "engine/gui/Widget.h"
+
+// A pointless wrapper for sf::RenderWindow.
+// WIll hopefully be useful one day
 
 namespace engine {
     class Window

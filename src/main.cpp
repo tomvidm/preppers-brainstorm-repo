@@ -2,9 +2,8 @@
 #include <chrono>
 #include <random>
 #include <string>
+
 #include "common/Logger.h"
-#include "Directories.h"
-#include "worldsim/TraitAtlas.h"
 #include "engine/Window.h"
 
 int main()

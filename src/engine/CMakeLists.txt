@@ -1,3 +1,5 @@
+add_subdirectory(gui)
+
 include_directories(
     ${PROJECT_SOURCE_DIR}/src/
     ${PROJECT_SOURCE_DIR}/include/
@@ -11,6 +13,8 @@ set(SOURCES
 
 add_library(
     engine
+    Node.cpp
+    ServiceLocator.cpp
     Window.cpp
     )
 

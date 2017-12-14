@@ -6,6 +6,7 @@
 namespace directories {
     const std::string relativePathToResources = "../../resources/";
     const std::string scripts = relativePathToResources + "scripts/";
+    const std::string fonts = relativePathToResources + "fonts/";
 }
 
 #endif

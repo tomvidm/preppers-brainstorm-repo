@@ -22,15 +22,4 @@ namespace engine {
     {
         return id_;
     }
-
-    bool Node::setVisibility(const bool& isVisible)
-    {
-        isVisible_ = isVisible;
-        return isVisible_;
-    }
-
-    bool Node::getVisibility() const
-    {
-        return isVisible_;
-    }
 }

@@ -13,22 +13,24 @@ namespace engine {
 
     void Window::loop()
     {
-        gui::Widget w("widget01", sf::Vector2f(100.f, 100.f), sf::Vector2f(300.f, 400.f));
-        w.setPosition(sf::Vector2f(100.f, 100.f));
         while (sfWindow.isOpen())
         {
-            sf::Event event;
-            while (sfWindow.pollEvent(event))
-            {
-                if (event.type == sf::Event::Closed)
-                {
-                    sfWindow.close();
-                }
-            }
-
+            handleEvents();
+            
             sfWindow.clear();
-            sfWindow.draw(w);
             sfWindow.display();
+        }
+    }
+
+    void Window::handleEvents()
+    {
+        sf::Event event;
+        while (sfWindow.pollEvent(event))
+        {
+            if (event.type == sf::Event::Closed)
+            {
+                sfWindow.close();
+            }
         }
     }
 }

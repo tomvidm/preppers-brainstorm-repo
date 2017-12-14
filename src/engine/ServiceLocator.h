@@ -1,6 +1,8 @@
 #ifndef SERVICELOCATOR_H
 #define SERVICELOCATOR_H
 
+#include "SceneManager.h"
+
 // This singleton class is used to access frequently used facilities
 // like the texture manager, animation manager, blah blah blah etc
 

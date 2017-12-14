@@ -11,7 +11,7 @@ set(SOURCES
 
 add_library(
     gui
-    Widget.cpp
+    ${SOURCES}
     )
 
 target_compile_definitions(
